@@ -24,11 +24,21 @@ export default function ProjectModal({
 }: ProjectModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const contentContainerRef = useRef<HTMLDivElement>(null);
   const leftContentRef = useRef<HTMLDivElement>(null);
   const rightContentRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const prevProjectRef = useRef<Project | null>(null);
   const isInitialMount = useRef(true);
+
+  // Función para hacer scroll al top del modal
+  const scrollToTop = () => {
+    // Scroll del contenedor principal (móvil)
+    contentContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll de las columnas individuales (desktop)
+    leftContentRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    rightContentRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Navegación con teclado
   useEffect(() => {
@@ -36,8 +46,10 @@ export default function ProjectModal({
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft' && canGoPrevious) {
+        scrollToTop();
         onPrevious();
       } else if (e.key === 'ArrowRight' && canGoNext) {
+        scrollToTop();
         onNext();
       } else if (e.key === 'Escape') {
         handleClose();
@@ -392,7 +404,7 @@ export default function ProjectModal({
         <button
           ref={closeButtonRef}
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
+          className="absolute top-4 right-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
           aria-label="Cerrar modal"
         >
           <svg
@@ -413,7 +425,7 @@ export default function ProjectModal({
         </button>
 
         {/* Content Container - Single scroll en móvil, doble scroll en desktop */}
-        <div className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
+        <div ref={contentContainerRef} className="flex-1 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden">
           {/* Left Side - Project Info */}
           <div
             ref={leftContentRef}
@@ -506,7 +518,10 @@ export default function ProjectModal({
             <div className="flex items-center justify-center gap-4 mt-6 md:mt-auto pt-6 border-t border-gray-200 dark:border-gray-800">
               {canGoPrevious && (
                 <button
-                  onClick={onPrevious}
+                  onClick={() => {
+                    scrollToTop();
+                    onPrevious();
+                  }}
                   className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
                   aria-label="Proyecto anterior"
                 >
@@ -532,7 +547,10 @@ export default function ProjectModal({
 
               {canGoNext && (
                 <button
-                  onClick={onNext}
+                  onClick={() => {
+                    scrollToTop();
+                    onNext();
+                  }}
                   className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
                   aria-label="Siguiente proyecto"
                 >

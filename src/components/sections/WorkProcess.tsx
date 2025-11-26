@@ -73,7 +73,7 @@ export default function WorkProcess() {
               <li><span>Desarrollo web a medida</span> </li>
               <li><span>Aplicaciones móviles</span></li>
               <li><span>Plataformas administrativas</span></li>
-              <li><span>Integración de pagos</span>  </li>
+              {/* <li><span>Integración de pagos</span>  </li> */}
               <li><span>Optimización, auditorías y SEO</span></li>
               <li><span>Automatización de procesos</span></li>
               <li><span>Desarrollo continuo y mantenimiento</span></li>
