@@ -6,6 +6,7 @@ Portfolio web personal desarrollado con React, TypeScript y Vite. Una aplicació
 
 - **Diseño Responsive**: Adaptado para dispositivos móviles, tablets y desktop
 - **Modo Oscuro/Claro**: Soporte completo para temas dark y light
+- **Multiidioma (i18n)**: Sistema de traducción completo con soporte para Español e Inglés
 - **Animaciones Fluidas**: Implementadas con GSAP para transiciones suaves
 - **Navegación SPA**: Routing con React Router DOM
 - **Modales Interactivos**: Modal para proyectos con navegación entre ellos
@@ -72,10 +73,15 @@ portfolio/
 │   │       └── ConclusionSection.tsx
 │   │
 │   ├── contexts/           # Context API de React
-│   │   └── AppContext.tsx  # Contexto global de la aplicación
+│   │   ├── AppContext.tsx  # Contexto global de la aplicación
+│   │   └── LanguageContext.tsx  # Contexto de idioma e i18n
 │   │
 │   ├── data/               # Datos estáticos
-│   │   └── projects.json   # Información de proyectos
+│   │   └── projects.json   # Información de proyectos (soporta multiidioma)
+│   │
+│   ├── i18n/               # Archivos de traducción
+│   │   ├── es.json         # Traducciones en español
+│   │   └── en.json         # Traducciones en inglés
 │   │
 │   ├── hooks/              # Custom React Hooks
 │   │   ├── useTheme.ts
@@ -197,12 +203,29 @@ npm run lint
 
 ## 🎨 Características de Desarrollo
 
+### Sistema de Traducción (i18n)
+La aplicación incluye un sistema completo de internacionalización:
+- **Archivos de traducción**: JSON estructurados en `src/i18n/` (es.json, en.json)
+- **LanguageContext**: Context API para gestionar el idioma globalmente
+- **Función `t()`**: Para obtener traducciones simples
+- **Función `tHtml()`**: Para traducciones con marcadores HTML/React (ej: `<tech>Laravel</tech>`)
+- **Persistencia**: El idioma seleccionado se guarda en localStorage
+- **Proyectos multiidioma**: Los proyectos en `projects.json` soportan textos en ambos idiomas
+
+**Marcadores disponibles en traducciones:**
+- `<tech>texto</tech>` → Resalta tecnologías con estilo naranja
+- `<highlight>texto</highlight>` → Resalta texto importante
+- `<strong>texto</strong>` → Texto en negrita
+
 ### Context API
-La aplicación utiliza React Context para manejar el estado global, específicamente para controlar si es la primera carga de la aplicación (útil para mostrar el loader).
+La aplicación utiliza React Context para manejar el estado global:
+- **AppContext**: Controla si es la primera carga de la aplicación (útil para mostrar el loader)
+- **LanguageContext**: Gestiona el idioma actual y las traducciones
 
 ### Custom Hooks
 El proyecto incluye múltiples custom hooks para:
 - Gestión de temas (dark/light mode)
+- Gestión de idioma (i18n)
 - Animaciones con GSAP
 - Modales (proyectos, email)
 - Scroll suave
@@ -213,47 +236,34 @@ El proyecto incluye múltiples custom hooks para:
 Las imágenes se cargan de forma optimizada usando un utility (`imageLoader.ts`) que maneja diferentes formatos y rutas.
 
 ### Animaciones
-Las animaciones están implementadas con GSAP y se organizan en hooks personalizados para mantener el código limpio y reutilizable.
+Las animaciones están implementadas con GSAP y se organizan en hooks personalizados para mantener el código limpio y reutilizable. Las animaciones se adaptan al idioma seleccionado.
 
-## 🚀 Despliegue
+## 🚀 Compilación para Producción
 
-Para desplegar la aplicación:
-
-1. **Construir para producción:**
-   ```bash
-   npm run build
-   ```
-
-2. **Los archivos optimizados estarán en la carpeta `dist/`**
-
-3. **Desplegar en tu plataforma preferida:**
-   - Vercel
-   - Netlify
-   - GitHub Pages
-   - AWS S3
-   - Cualquier servicio de hosting estático
-
-### Ejemplo con Vercel
+Para compilar el proyecto para producción:
 
 ```bash
-npm install -g vercel
-vercel
+npm run build
 ```
 
-### Ejemplo con Netlify
+Este comando:
+- Compila TypeScript y verifica tipos
+- Optimiza y minifica el código
+- Genera los archivos estáticos en la carpeta `dist/`
+- Incluye todas las traducciones y assets optimizados
 
-```bash
-npm install -g netlify-cli
-netlify deploy --prod
-```
+Los archivos listos para desplegar estarán en la carpeta `dist/`.
 
 ## 📝 Notas Adicionales
 
 - El proyecto utiliza **TypeScript** para mayor seguridad de tipos
 - **Tailwind CSS 4** está configurado con Vite plugin para mejor rendimiento
-- Las animaciones están optimizadas para rendimiento con GSAP
+- **Sistema i18n completo**: Soporte para múltiples idiomas con cambio dinámico
+- Las animaciones están optimizadas para rendimiento con GSAP y se adaptan al idioma
 - El proyecto es completamente responsive y funciona en todos los dispositivos
 - Se utiliza `sessionStorage` para mejorar la experiencia del usuario (evitar mostrar el loader en cada navegación)
+- Se utiliza `localStorage` para persistir la preferencia de idioma del usuario
+- Los proyectos en `projects.json` soportan estructura multiidioma para todos sus campos de texto
 
 ## 📄 Licencia
 
