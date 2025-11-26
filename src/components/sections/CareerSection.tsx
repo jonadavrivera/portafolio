@@ -1,4 +1,5 @@
 import { useCareerAnimation } from '../../hooks/useSectionAnimations';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 export default function CareerSection() {
   const {
@@ -8,6 +9,7 @@ export default function CareerSection() {
     cardCertificadoRef,
     cardIngenieriaRef,
   } = useCareerAnimation();
+  const { t } = useLanguageContext();
 
   return (
     <section
@@ -21,17 +23,16 @@ export default function CareerSection() {
         aria-label="Formación académica"
       >
         <span className="relative inline-block after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r after:from-[#ff9800] after:to-[#ff9800] after:w-full after:mt-2 mr-3">
-          Formación
+          {t('career.title')}
         </span>
-        <span className="text-[#ff9800]">académica</span>
+        <span className="text-[#ff9800]">{t('career.titleHighlight')}</span>
       </h2>
       <p
         id="estudios-description"
         ref={estudiosDescriptionRef}
         className="text-gray-700 dark:text-gray-400 text-center mb-16 max-w-2xl mx-auto"
       >
-        Mi trayectoria académica refleja mi compromiso con la excelencia y la
-        innovación tecnológica
+        {t('career.description')}
       </p>
 
       <div id="estudios-cards" className="w-full space-y-8">
@@ -49,7 +50,7 @@ export default function CareerSection() {
               <div className="absolute right-0 top-0 bottom-0 w-px bg-[rgba(189,189,189,0.22)] hidden md:block"></div>
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Período
+                  {t('career.period')}
                 </span>
                 <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
                   <svg
@@ -75,7 +76,7 @@ export default function CareerSection() {
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Universidad
+                  {t('career.university')}
                 </span>
                 <p className="text-xl font-bold text-[#ff9800] mt-2">UNIR México</p>
               </div>
@@ -121,19 +122,19 @@ export default function CareerSection() {
             <div className="flex-1 md:w-3/5 space-y-4 pl-0 md:pl-6">
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Carrera
+                  {t('career.degree')}
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mt-2 leading-tight">
-                  Maestría en Dirección e Ingeniería en Sitios Web
+                  {t('career.maestria.title')}
                 </h3>
               </div>
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Descripción
+                  {t('experience.description')}
                 </span>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg mt-2">
-                  Desarrollo de competencias en liderazgo técnico, arquitectura digital, gestión de equipos y dirección de proyectos web de alto impacto.
+                  {t('career.maestria.description')}
                 </p>
               </div>
             </div>
@@ -155,7 +156,7 @@ export default function CareerSection() {
             <div className="flex-shrink-0 md:w-2/5 space-y-6 text-center md:text-left pr-0 md:pr-8">
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Período
+                  {t('career.period')}
                 </span>
                 <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
                   <svg
@@ -181,7 +182,7 @@ export default function CareerSection() {
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Universidad
+                  {t('career.university')}
                 </span>
                 <p className="text-xl font-bold text-[#ff9800] mt-2">
                   MIU City University Miami
@@ -238,16 +239,16 @@ export default function CareerSection() {
                   Carrera
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mt-2 leading-tight">
-                  Certificado en Digital Project Management
+                  {t('career.certificado.title')}
                 </h3>
               </div>
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Descripción
+                  {t('experience.description')}
                 </span>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg mt-2">
-                Formación especializada en dirección de proyectos digitales, metodologías ágiles, definición de alcances y priorización estratégica.
+                {t('career.certificado.description')}
                 </p>
               </div>
             </div>
@@ -268,7 +269,7 @@ export default function CareerSection() {
               <div className="absolute right-0 top-0 bottom-0 w-px bg-[rgba(189,189,189,0.22)] hidden md:block"></div>
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Período
+                  {t('career.period')}
                 </span>
                 <div className="flex items-center justify-center md:justify-start gap-2 mt-2">
                   <svg
@@ -294,7 +295,7 @@ export default function CareerSection() {
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Universidad
+                  {t('career.university')}
                 </span>
                 <p className="text-xl font-bold text-[#ff9800] mt-2">
                   Universidad Tres Culturas
@@ -347,19 +348,19 @@ export default function CareerSection() {
                   Carrera
                 </span>
                 <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mt-2 leading-tight">
-                  Ingeniería en Sistemas Computacionales
+                  {t('career.ingenieria.title')}
                 </h3>
               </div>
 
               <div>
                 <span className="text-xs uppercase tracking-wider text-gray-700 dark:text-gray-500 font-semibold">
-                  Descripción
+                  {t('experience.description')}
                 </span>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg mt-2">
-                Formación base en desarrollo de software, bases de datos, análisis de sistemas y arquitectura.
+                {t('career.ingenieria.description')}
                 </p>
                 <small className="text-gray-500 dark:text-gray-300 text-xs">
-                  Reconocimiento por la actualización de la página web institucional.
+                  {t('career.ingenieria.recognition')}
                 </small>
               </div>
             </div>

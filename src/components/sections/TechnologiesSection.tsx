@@ -1,4 +1,5 @@
 import { useTechnologiesAnimation } from '../../hooks/useTechnologiesAnimation';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 // Front-End Icons
 import HTML5Icon from '../../assets/images/iconos/HTML5.svg';
 import CSS3Icon from '../../assets/images/iconos/CSS3.svg';
@@ -44,6 +45,7 @@ export default function TechnologiesSection() {
     techTestingRef,
     techOthersRef,
   } = useTechnologiesAnimation();
+  const { t } = useLanguageContext();
 
   return (
     <section
@@ -57,9 +59,9 @@ export default function TechnologiesSection() {
         aria-label="Tecnologías"
       >
         <span className="relative inline-block after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r after:from-[#ff9800] after:to-[#ff9800] after:w-full after:mt-2 mr-3">
-          Tecnologías
+          {t('technologies.title')}
         </span>
-        <span className="text-[#ff9800]">utilizadas</span>
+        <span className="text-[#ff9800]">{t('technologies.titleHighlight')}</span>
       </h2>
 
       <div className="w-full max-w-7xl mx-auto">

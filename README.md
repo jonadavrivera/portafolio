@@ -1,73 +1,265 @@
-# React + TypeScript + Vite
+# Portfolio Personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio web personal desarrollado con React, TypeScript y Vite. Una aplicación moderna y responsive que muestra proyectos, experiencia profesional, tecnologías y proceso de trabajo, con animaciones fluidas y una experiencia de usuario optimizada.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Diseño Responsive**: Adaptado para dispositivos móviles, tablets y desktop
+- **Modo Oscuro/Claro**: Soporte completo para temas dark y light
+- **Animaciones Fluidas**: Implementadas con GSAP para transiciones suaves
+- **Navegación SPA**: Routing con React Router DOM
+- **Modales Interactivos**: Modal para proyectos con navegación entre ellos
+- **Loader Animado**: Pantalla de carga inicial con animaciones
+- **Scroll Suave**: Navegación suave entre secciones
+- **Optimización de Imágenes**: Carga optimizada de imágenes con formato WebP
+- **SEO Friendly**: Estructura semántica y accesible
 
-## React Compiler
+## 🛠️ Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core
+- **React 19.2.0**: Biblioteca de JavaScript para construir interfaces de usuario
+- **TypeScript 5.9.3**: Superset de JavaScript con tipado estático
+- **Vite 7.2.4**: Build tool y dev server de próxima generación
 
-## Expanding the ESLint configuration
+### Estilos
+- **Tailwind CSS 4.1.17**: Framework de CSS utility-first
+- **CSS Personalizado**: Estilos adicionales y animaciones
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Animaciones
+- **GSAP 3.13.0**: Biblioteca de animaciones de alto rendimiento
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Routing
+- **React Router DOM 7.9.6**: Enrutamiento para aplicaciones React
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Fuentes
+- **Fira Code**: Fuente monoespaciada para código
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Estructura del Proyecto
+
+```
+portfolio/
+├── public/                 # Archivos estáticos públicos
+│   ├── assets/
+│   │   └── images/        # Imágenes de proyectos
+│   └── vite.svg
+│
+├── src/
+│   ├── assets/            # Recursos de la aplicación
+│   │   ├── fonts/         # Fuentes personalizadas (Fira Code)
+│   │   └── images/         # Imágenes e iconos
+│   │       ├── iconos/    # Iconos de tecnologías
+│   │       ├── logo.svg
+│   │       └── jonathanrivera.webp
+│   │
+│   ├── components/         # Componentes React
+│   │   ├── layout/        # Componentes de layout
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Loader.tsx
+│   │   │   ├── MobileMenu.tsx
+│   │   │   ├── ProjectModal.tsx
+│   │   │   ├── EmailModal.tsx
+│   │   │   ├── PageTransition.tsx
+│   │   │   └── DecarativeCircle.tsx
+│   │   │
+│   │   └── sections/      # Secciones de la página
+│   │       ├── HeroSection.tsx
+│   │       ├── ExperienceSection.tsx
+│   │       ├── CareerSection.tsx
+│   │       ├── ProjectsSection.tsx
+│   │       ├── TechnologiesSection.tsx
+│   │       ├── WorkProcess.tsx
+│   │       └── ConclusionSection.tsx
+│   │
+│   ├── contexts/           # Context API de React
+│   │   └── AppContext.tsx  # Contexto global de la aplicación
+│   │
+│   ├── data/               # Datos estáticos
+│   │   └── projects.json   # Información de proyectos
+│   │
+│   ├── hooks/              # Custom React Hooks
+│   │   ├── useTheme.ts
+│   │   ├── useLanguage.ts
+│   │   ├── useLoader.ts
+│   │   ├── useSmoothScroll.ts
+│   │   ├── useProjectModal.ts
+│   │   ├── useEmailModal.ts
+│   │   ├── useMobileMenu.ts
+│   │   └── [otros hooks de animación]
+│   │
+│   ├── pages/              # Páginas de la aplicación
+│   │   ├── Home.tsx        # Página principal
+│   │   ├── Proyectos.tsx  # Página de proyectos
+│   │   └── NotFound.tsx   # Página 404
+│   │
+│   ├── router/             # Configuración de rutas
+│   │   └── index.tsx
+│   │
+│   ├── styles/             # Estilos globales
+│   │   └── fonts.css      # Configuración de fuentes
+│   │
+│   ├── utils/              # Utilidades
+│   │   └── imageLoader.ts # Cargador de imágenes
+│   │
+│   ├── index.css           # Estilos globales principales
+│   └── main.tsx            # Punto de entrada de la aplicación
+│
+├── dist/                   # Build de producción (generado)
+├── node_modules/           # Dependencias (generado)
+│
+├── index.html              # HTML principal
+├── package.json            # Configuración del proyecto y dependencias
+├── vite.config.ts          # Configuración de Vite
+├── tsconfig.json           # Configuración de TypeScript
+└── README.md               # Este archivo
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📋 Requisitos Previos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Antes de comenzar, asegúrate de tener instalado:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Node.js** (versión 18 o superior)
+- **npm** o **yarn** (gestor de paquetes)
+
+Puedes verificar las versiones instaladas ejecutando:
+
+```bash
+node --version
+npm --version
 ```
+
+## 🔧 Instalación
+
+Sigue estos pasos para configurar el proyecto en tu máquina local:
+
+### 1. Clonar el repositorio
+
+```bash
+git clone <url-del-repositorio>
+cd portfolio
+```
+
+### 2. Instalar dependencias
+
+Usando npm:
+
+```bash
+npm install
+```
+
+O usando yarn:
+
+```bash
+yarn install
+```
+
+### 3. Iniciar el servidor de desarrollo
+
+```bash
+npm run dev
+```
+
+O con yarn:
+
+```bash
+yarn dev
+```
+
+La aplicación estará disponible en `http://localhost:5173` (o el puerto que Vite asigne).
+
+## 📜 Scripts Disponibles
+
+En el directorio del proyecto, puedes ejecutar:
+
+### `npm run dev`
+Inicia el servidor de desarrollo de Vite. La aplicación se recargará automáticamente cuando modifiques archivos.
+
+### `npm run build`
+Compila la aplicación para producción. Los archivos optimizados se generan en la carpeta `dist/`.
+
+```bash
+npm run build
+```
+
+### `npm run preview`
+Previsualiza la build de producción localmente antes de desplegarla.
+
+```bash
+npm run preview
+```
+
+### `npm run lint`
+Ejecuta ESLint para verificar y corregir problemas de código.
+
+```bash
+npm run lint
+```
+
+## 🎨 Características de Desarrollo
+
+### Context API
+La aplicación utiliza React Context para manejar el estado global, específicamente para controlar si es la primera carga de la aplicación (útil para mostrar el loader).
+
+### Custom Hooks
+El proyecto incluye múltiples custom hooks para:
+- Gestión de temas (dark/light mode)
+- Animaciones con GSAP
+- Modales (proyectos, email)
+- Scroll suave
+- Menú móvil
+- Y más...
+
+### Optimización de Imágenes
+Las imágenes se cargan de forma optimizada usando un utility (`imageLoader.ts`) que maneja diferentes formatos y rutas.
+
+### Animaciones
+Las animaciones están implementadas con GSAP y se organizan en hooks personalizados para mantener el código limpio y reutilizable.
+
+## 🚀 Despliegue
+
+Para desplegar la aplicación:
+
+1. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
+
+2. **Los archivos optimizados estarán en la carpeta `dist/`**
+
+3. **Desplegar en tu plataforma preferida:**
+   - Vercel
+   - Netlify
+   - GitHub Pages
+   - AWS S3
+   - Cualquier servicio de hosting estático
+
+### Ejemplo con Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Ejemplo con Netlify
+
+```bash
+npm install -g netlify-cli
+netlify deploy --prod
+```
+
+## 📝 Notas Adicionales
+
+- El proyecto utiliza **TypeScript** para mayor seguridad de tipos
+- **Tailwind CSS 4** está configurado con Vite plugin para mejor rendimiento
+- Las animaciones están optimizadas para rendimiento con GSAP
+- El proyecto es completamente responsive y funciona en todos los dispositivos
+- Se utiliza `sessionStorage` para mejorar la experiencia del usuario (evitar mostrar el loader en cada navegación)
+
+## 📄 Licencia
+
+Este proyecto es de uso personal.
+
+---
+
+Desarrollado con ❤️ por Jonathan Rivera
+

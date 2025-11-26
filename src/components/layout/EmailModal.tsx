@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useEmailModal } from '../../hooks/useEmailModal';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 export default function EmailModal() {
   const {
@@ -11,6 +12,7 @@ export default function EmailModal() {
     copyEmail,
     sendEmail,
   } = useEmailModal();
+  const { t } = useLanguageContext();
 
   useEffect(() => {
     const emailLink = document.getElementById('emailLink');
@@ -65,7 +67,7 @@ export default function EmailModal() {
           id="closeModal"
           onClick={closeModal}
           className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
-          aria-label="Cerrar modal"
+          aria-label={t('emailModal.close')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,16 +89,16 @@ export default function EmailModal() {
         <div className="p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-              Contacto
+              {t('emailModal.title')}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Selecciona una opción para contactarme
+              {t('emailModal.subtitle')}
             </p>
           </div>
 
           <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Correo electrónico:
+              {t('emailModal.emailLabel')}
             </label>
             <div className="flex items-center gap-3">
               <span
@@ -109,7 +111,7 @@ export default function EmailModal() {
                 id="copyEmailBtn"
                 onClick={copyEmail}
                 className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Copiar correo"
+                aria-label={t('emailModal.copy')}
               >
                 {copyFeedback ? (
                   <svg
@@ -150,7 +152,7 @@ export default function EmailModal() {
                 id="copyFeedback"
                 className="text-sm text-green-600 dark:text-green-400 mt-2"
               >
-                ✓ Copiado al portapapeles
+                {t('emailModal.copied')}
               </p>
             )}
           </div>
@@ -175,7 +177,7 @@ export default function EmailModal() {
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              Enviar correo
+              {t('emailModal.send')}
             </button>
           </div>
         </div>

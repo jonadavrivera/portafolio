@@ -2,97 +2,203 @@
   "featured": [
     {
       "id": "amis",
-      "title": "Convención de Aseguradores AMIS",
-      "category": "Aplicación Móvil",
+      "title": {
+        "es": "Convención de Aseguradores AMIS",
+        "en": "AMIS Insurers Convention"
+      },
+      "category": {
+        "es": "Aplicación Móvil",
+        "en": "Mobile App"
+      },
       "previewImage": "/assets/images/proyectos/amistienda.webp",
-      "shortDescription": "Aplicación móvil para android y ios para informar sobre los ponentes, programa y actividades de la convención.",
+      "shortDescription": {
+        "es": "Aplicación móvil para android y ios para informar sobre los ponentes, programa y actividades de la convención.",
+        "en": "Mobile application for Android and iOS to inform about speakers, program and convention activities."
+      },
       "technologies": ["Flutter", "Laravel", "Firebase", "API REST"],
-      "fullDescription": "Aplicación móvil desarrollada para Android e iOS que permite a los asistentes de la Convención de Aseguradores AMIS acceder a información detallada sobre ponentes, programa de actividades, horarios y networking. La aplicación cuenta con notificaciones push en tiempo real y sincronización offline.",
+      "fullDescription": {
+        "es": "Aplicación móvil desarrollada para Android e iOS que permite a los asistentes de la Convención de Aseguradores AMIS acceder a información detallada sobre ponentes, programa de actividades, horarios y networking. La aplicación cuenta con notificaciones push en tiempo real y sincronización offline.",
+        "en": "Mobile application developed for Android and iOS that allows AMIS Insurers Convention attendees to access detailed information about speakers, activity program, schedules and networking. The application features real-time push notifications and offline synchronization."
+      },
       "startDate": "2023",
       "endDate": "2024",
       "images": [
         {
           "url": "/assets/images/proyectos/amis34.webp",
-          "title": "Pantalla principal",
-          "description": "Vista principal de la aplicación con el programa del día"
+          "title": {
+            "es": "Pantalla principal",
+            "en": "Main screen"
+          },
+          "description": {
+            "es": "Vista principal de la aplicación con el programa del día",
+            "en": "Main view of the application with the day's program"
+          }
         },
         {
           "url": "/assets/images/proyectos/amis34.webp",
-          "title": "Detalle de ponente",
-          "description": "Información detallada de cada ponente"
+          "title": {
+            "es": "Detalle de ponente",
+            "en": "Speaker detail"
+          },
+          "description": {
+            "es": "Información detallada de cada ponente",
+            "en": "Detailed information for each speaker"
+          }
         },
         {
-            "url": "/assets/images/proyectos/amis34.webp",
-            "title": "Detalle de ponente",
-            "description": "Información detallada de cada ponente"
+          "url": "/assets/images/proyectos/amis34.webp",
+          "title": {
+            "es": "Detalle de ponente",
+            "en": "Speaker detail"
+          },
+          "description": {
+            "es": "Información detallada de cada ponente",
+            "en": "Detailed information for each speaker"
           }
+        }
       ],
-      "header": "Plataforma móvil para eventos",
-      "optionalDescription": "Desarrollada con Flutter para garantizar una experiencia nativa en ambas plataformas móviles."
+      "header": {
+        "es": "Plataforma móvil para eventos",
+        "en": "Mobile platform for events"
+      },
+      "optionalDescription": {
+        "es": "Desarrollada con Flutter para garantizar una experiencia nativa en ambas plataformas móviles.",
+        "en": "Developed with Flutter to ensure a native experience on both mobile platforms."
+      }
     },
     {
       "id": "launi",
-      "title": "La Uni",
-      "category": "Sitio web",
-      "previewImage": "/assets/images/proyectos/launihome.webp", 
-      "shortDescription": "Actualización de diseño y funcionalidades de la web de la Universidad La Uni.",
+      "title": {
+        "es": "La Uni",
+        "en": "La Uni"
+      },
+      "category": {
+        "es": "Sitio web",
+        "en": "Website"
+      },
+      "previewImage": "/assets/images/proyectos/launihome.webp",
+      "shortDescription": {
+        "es": "Actualización de diseño y funcionalidades de la web de la Universidad La Uni.",
+        "en": "Design and functionality update for La Uni University website."
+      },
       "technologies": ["React", "Next.js", "Tailwind CSS", "Node.js"],
-      "fullDescription": "Rediseño completo y modernización de la página web institucional de la Universidad La Uni. Se implementó un nuevo sistema de gestión de contenido, mejoras en la experiencia de usuario y optimización para dispositivos móviles. El proyecto incluyó migración de datos y capacitación del equipo administrativo.",
+      "fullDescription": {
+        "es": "Rediseño completo y modernización de la página web institucional de la Universidad La Uni. Se implementó un nuevo sistema de gestión de contenido, mejoras en la experiencia de usuario y optimización para dispositivos móviles. El proyecto incluyó migración de datos y capacitación del equipo administrativo.",
+        "en": "Complete redesign and modernization of La Uni University's institutional website. A new content management system was implemented, along with user experience improvements and mobile device optimization. The project included data migration and administrative team training."
+      },
       "startDate": "2022",
       "endDate": "2023",
       "images": [
         {
           "url": "./images/launi-preview.jpg",
-          "title": "Homepage",
-          "description": "Nueva página de inicio con diseño moderno"
+          "title": {
+            "es": "Homepage",
+            "en": "Homepage"
+          },
+          "description": {
+            "es": "Nueva página de inicio con diseño moderno",
+            "en": "New homepage with modern design"
+          }
         }
       ],
-      "header": "Transformación digital universitaria",
-      "optionalDescription": "Proyecto integral que incluyó diseño, desarrollo y migración de contenido."
+      "header": {
+        "es": "Transformación digital universitaria",
+        "en": "University digital transformation"
+      },
+      "optionalDescription": {
+        "es": "Proyecto integral que incluyó diseño, desarrollo y migración de contenido.",
+        "en": "Comprehensive project that included design, development and content migration."
+      }
     },
     {
       "id": "laloma",
-      "title": "La Loma",
-      "category": "CMS",
+      "title": {
+        "es": "La Loma",
+        "en": "La Loma"
+      },
+      "category": {
+        "es": "CMS",
+        "en": "CMS"
+      },
       "previewImage": "/assets/images/proyectos/lalomahomep1.webp",
-      "shortDescription": "Sistema con aprobación de registros y exportación de información a Excel.",
+      "shortDescription": {
+        "es": "Sistema con aprobación de registros y exportación de información a Excel.",
+        "en": "System with record approval and Excel information export."
+      },
       "technologies": ["Laravel", "PHP", "MySQL", "Excel"],
-      "fullDescription": "Sistema de gestión de contenido desarrollado con Laravel que permite la administración de registros con flujo de aprobación. Incluye funcionalidad de exportación de datos a Excel con formatos personalizados y reportes automatizados. El sistema cuenta con roles de usuario y permisos granulares.",
+      "fullDescription": {
+        "es": "Sistema de gestión de contenido desarrollado con Laravel que permite la administración de registros con flujo de aprobación. Incluye funcionalidad de exportación de datos a Excel con formatos personalizados y reportes automatizados. El sistema cuenta con roles de usuario y permisos granulares.",
+        "en": "Content management system developed with Laravel that allows record administration with approval workflow. Includes Excel data export functionality with custom formats and automated reports. The system features user roles and granular permissions."
+      },
       "startDate": "2021",
       "endDate": "2022",
       "images": [
         {
           "url": "/assets/images/proyectos/lalomahomep1.webp",
-          "title": "Dashboard",
-          "description": "Panel de administración principal"
+          "title": {
+            "es": "Dashboard",
+            "en": "Dashboard"
+          },
+          "description": {
+            "es": "Panel de administración principal",
+            "en": "Main administration panel"
+          }
         }
       ],
-      "header": "Sistema de gestión empresarial",
-      "optionalDescription": "Solución completa para gestión de registros y reportes."
+      "header": {
+        "es": "Sistema de gestión empresarial",
+        "en": "Business management system"
+      },
+      "optionalDescription": {
+        "es": "Solución completa para gestión de registros y reportes.",
+        "en": "Complete solution for record and report management."
+      }
     }
   ],
   "all": [
     {
       "id": "proyecto-8",
-      "title": "Portal de Noticias",
-      "category": "Sitio web",
+      "title": {
+        "es": "Portal de Noticias",
+        "en": "News Portal"
+      },
+      "category": {
+        "es": "Sitio web",
+        "en": "Website"
+      },
       "previewImage": "./images/launi-preview.jpg",
-      "shortDescription": "Portal de noticias con sistema de categorías, búsqueda avanzada y suscripciones premium.",
+      "shortDescription": {
+        "es": "Portal de noticias con sistema de categorías, búsqueda avanzada y suscripciones premium.",
+        "en": "News portal with category system, advanced search and premium subscriptions."
+      },
       "technologies": ["Next.js", "TypeScript", "Sanity CMS", "Stripe"],
-      "fullDescription": "Portal de noticias desarrollado con Next.js y Sanity CMS que ofrece contenido categorizado, búsqueda avanzada, sistema de suscripciones premium y área de miembros. Incluye optimización SEO y carga rápida de contenido.",
+      "fullDescription": {
+        "es": "Portal de noticias desarrollado con Next.js y Sanity CMS que ofrece contenido categorizado, búsqueda avanzada, sistema de suscripciones premium y área de miembros. Incluye optimización SEO y carga rápida de contenido.",
+        "en": "News portal developed with Next.js and Sanity CMS that offers categorized content, advanced search, premium subscription system and member area. Includes SEO optimization and fast content loading."
+      },
       "startDate": "2023",
       "endDate": "2024",
       "images": [
         {
           "url": "./images/launi-preview.jpg",
-          "title": "Página de artículo",
-          "description": "Vista de artículo con diseño responsive"
+          "title": {
+            "es": "Página de artículo",
+            "en": "Article page"
+          },
+          "description": {
+            "es": "Vista de artículo con diseño responsive",
+            "en": "Article view with responsive design"
+          }
         }
       ],
-      "header": "Medios digitales",
-      "optionalDescription": "Plataforma moderna para contenido periodístico."
+      "header": {
+        "es": "Medios digitales",
+        "en": "Digital media"
+      },
+      "optionalDescription": {
+        "es": "Plataforma moderna para contenido periodístico.",
+        "en": "Modern platform for journalistic content."
+      }
     }
-    
   ]
 }
-

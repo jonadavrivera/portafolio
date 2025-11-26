@@ -1,0 +1,199 @@
+{
+  "common": {
+    "inicio": "Inicio",
+    "experiencia": "Experiencia",
+    "proyectos": "Proyectos",
+    "contacto": "Contacto",
+    "anterior": "Anterior",
+    "siguiente": "Siguiente",
+    "cerrar": "Cerrar",
+    "copiado": "✓ Copiado al portapapeles",
+    "verProyecto": "Ver proyecto",
+    "verTodos": "Ver todos los proyectos",
+    "todos": "Todos"
+  },
+  "header": {
+    "nav": {
+      "inicio": "Inicio",
+      "experiencia": "Experiencia",
+      "proyectos": "Proyectos",
+      "contacto": "Contacto"
+    }
+  },
+  "hero": {
+    "greeting": "👋 Hola",
+    "name": "Soy",
+    "nameHighlight": "Jonathan Rivera",
+    "title": "Desarrollador",
+    "typing": {
+      "sitiosWeb": "Sitios Web",
+      "aplicacionesMoviles": "Aplicaciones Móviles",
+      "plataformas": "Plataformas",
+      "herramientas": "Herramientas"
+    },
+    "availability": "Disponible para nuevos proyectos",
+    "description": "Ing. en Sistemas Computacionales con Maestría en Dirección e Ingeniería en Sitios Web con más de 8 años creando experiencias digitales eficientes.",
+    "buttonProjects": "Ver proyectos",
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Correo"
+    },
+    "about": {
+      "title": "Sobre",
+      "titleHighlight": "mí",
+      "subtitle": "Más allá del código y las tecnologías",
+      "paragraph1": "Me enfoco en entender el contexto del negocio y transformar esas necesidades en productos claros, modernos y fáciles de usar. He colaborado tanto con empresas como con clientes freelance, siempre buscando equilibrar funcionalidad, diseño y mantenibilidad.",
+      "paragraph2": "Disfruto trabajar en herramientas internas y paneles administrativos que facilitan el trabajo de los equipos. Me motiva crear experiencias donde la claridad visual y la eficiencia se convierten en parte del día a día."
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "titleHighlight": "laboral",
+    "position": "Cargo",
+    "company": "Empresa",
+    "period": "Período",
+    "description": "Descripción",
+    "fullStack": "Full Stack Developer",
+    "contactoMedios": "Contacto en Medios",
+    "description1": "Lideré el desarrollo de plataformas digitales y herramientas internas, coordinando equipos y aplicando buenas prácticas con <tech>Laravel 12</tech>, <tech>Livewire 3</tech> y <tech>React</tech>.",
+    "description2": "Participé en la definición de requisitos y la planificación de proyectos, impulsando procesos más claros y eficientes.",
+    "description3": "También desarrollé aplicaciones móviles con <tech>Flutter</tech>, integrando funciones administrativas y notificaciones.",
+    "freelance": {
+      "title": "Freelance Web & Mobile Developer",
+      "description": "Experiencia independiente colaborando con empresas y clientes en el desarrollo de plataformas, paneles administrativos y herramientas internas. Trabajo en análisis, arquitectura, construcción y mejoras continuas, entregando soluciones claras, escalables y orientadas al negocio."
+    }
+  },
+  "career": {
+    "title": "Formación",
+    "titleHighlight": "académica",
+    "description": "Mi trayectoria académica refleja mi compromiso con la excelencia y la innovación tecnológica",
+    "period": "Período",
+    "university": "Universidad",
+    "degree": "Título",
+    "maestria": {
+      "title": "Maestría en Dirección e Ingeniería en Sitios Web",
+      "university": "UNIR México",
+      "description": "Desarrollo de competencias en liderazgo técnico, arquitectura digital, gestión de equipos y dirección de proyectos web de alto impacto."
+    },
+    "certificado": {
+      "title": "Certificado en Digital Project Management",
+      "university": "MIU City University Miami",
+      "description": "Formación especializada en dirección de proyectos digitales, metodologías ágiles, definición de alcances y priorización estratégica."
+    },
+    "ingenieria": {
+      "title": "Ingeniería en Sistemas Computacionales",
+      "university": "Universidad Tres Culturas",
+      "description": "Formación base en desarrollo de software, bases de datos, análisis de sistemas y arquitectura.",
+      "recognition": "Reconocimiento por la actualización de la página web institucional."
+    }
+  },
+  "projects": {
+    "section": {
+      "tagline": "Diseño + Código + Impacto",
+      "title": "Proyectos",
+      "titleHighlight": "destacados",
+      "discoverTitle": "Descubre mi trabajo",
+      "description": "Una selección de proyectos que representan mi pasión por el desarrollo y la creación de experiencias únicas.",
+      "outro": {
+        "tagline": "Gracias por explorar",
+        "title": "¿Trabajamos juntos?",
+        "description": "Si te gustó lo que viste, estaré encantado de conversar sobre cómo podemos crear algo increíble juntos.",
+        "button": "Ver todos los proyectos"
+      }
+    },
+    "page": {
+      "title": "Todos los",
+      "titleHighlight": "proyectos",
+      "description": "Una colección completa de proyectos que demuestran mi experiencia en desarrollo web, aplicaciones móviles y soluciones digitales innovadoras.",
+      "showing": "Mostrando",
+      "project": "proyecto",
+      "projects": "proyectos",
+      "in": "en",
+      "noResults": "No se encontraron proyectos en esta categoría",
+      "viewAll": "Ver todos los proyectos"
+    },
+    "modal": {
+      "description": "Descripción",
+      "period": "Período",
+      "technologies": "Tecnologías",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "close": "Cerrar modal",
+      "previousProject": "Proyecto anterior",
+      "nextProject": "Siguiente proyecto"
+    }
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "titleHighlight": "utilizadas",
+    "frontend": "Front-End",
+    "backend": "Back-End",
+    "databases": "Databases",
+    "testing": "Testing",
+    "tools": "Tools & Platforms",
+    "others": "Others"
+  },
+  "workProcess": {
+    "title": "Proceso de",
+    "titleHighlight": "trabajo",
+    "description": "Así estructuro cada proyecto: claridad en el proceso, servicios definidos y un enfoque que asegura resultados reales.",
+    "how": {
+      "title": "Cómo trabajo",
+      "description": "Un proceso estructurado que permite alinear expectativas, reducir riesgos y avanzar con claridad desde el primer día.",
+      "steps": {
+        "analysis": "Análisis",
+        "design": "Diseño UX/UI",
+        "solution": "Diseño de la solución",
+        "development": "Desarrollo",
+        "testing": "Testing y optimización",
+        "deployment": "Despliegue"
+      }
+    },
+    "services": {
+      "title": "Servicios",
+      "description": "Soluciones a medida para empresas y clientes freelance, adaptadas a sus necesidades y objetivos.",
+      "items": {
+        "web": "Desarrollo web a medida",
+        "mobile": "Aplicaciones móviles",
+        "admin": "Plataformas administrativas",
+        "optimization": "Optimización, auditorías y SEO",
+        "automation": "Automatización de procesos",
+        "maintenance": "Desarrollo continuo y mantenimiento"
+      }
+    },
+    "approach": {
+      "title": "Mi enfoque",
+      "description": "Principios que guían cada proyecto para asegurar resultados consistentes, escalables y sostenibles en el tiempo.",
+      "items": {
+        "cleanCode": "Código limpio",
+        "communication": "Comunicación clara",
+        "delivery": "Entregas puntuales",
+        "documentation": "Documentación",
+        "scalability": "Escalabilidad"
+      }
+    }
+  },
+  "conclusion": {
+    "title": "Construyendo el siguiente capítulo",
+    "text": "Cada proyecto es una oportunidad para aprender, innovar y transformar ideas en experiencias digitales memorables.",
+    "text2": "Estoy listo para seguir construyendo y creciendo como desarrollador.",
+    "button": "Contactar"
+  },
+  "emailModal": {
+    "title": "Contacto",
+    "subtitle": "Selecciona una opción para contactarme",
+    "emailLabel": "Correo electrónico:",
+    "copy": "Copiar correo",
+    "copied": "✓ Copiado al portapapeles",
+    "send": "Enviar correo",
+    "close": "Cerrar modal"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Página no encontrada",
+    "description": "La página que buscas no existe.",
+    "back": "Volver al inicio"
+  }
+}
+

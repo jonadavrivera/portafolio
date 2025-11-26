@@ -1,4 +1,5 @@
 import { useWorkProcessAnimation } from '../../hooks/useWorkProcessAnimation';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 export default function WorkProcess() {
   const {
@@ -7,6 +8,7 @@ export default function WorkProcess() {
     card2Ref,
     card3Ref,
   } = useWorkProcessAnimation();
+  const { t } = useLanguageContext();
 
   return (
     <section
@@ -23,13 +25,12 @@ export default function WorkProcess() {
             aria-label="Proceso de trabajo"
           >
             <span className="relative inline-block after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r after:from-[#ff9800] after:to-[#ff9800] after:w-full after:mt-2 mr-3">
-              Proceso de
+              {t('workProcess.title')}
             </span>
-            <span className="text-[#ff9800]">trabajo</span>
+            <span className="text-[#ff9800]">{t('workProcess.titleHighlight')}</span>
           </h2>
           <p className="mt-3 text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Así estructuro cada proyecto: claridad en el proceso, servicios definidos
-            y un enfoque que asegura resultados reales.
+            {t('workProcess.description')}
           </p>
         </div>
 
@@ -41,19 +42,18 @@ export default function WorkProcess() {
             className="border border-[rgba(189,189,189,0.22)] rounded-3xl p-6 flex flex-col gap-3 backdrop-blur-[10px] dark:[background:linear-gradient(var(--tc-bg-3),var(--tc-bg-3))_padding-box,linear-gradient(var(--angle),var(--tc-bg-3)_90%,var(--primary-color)_100%)_border-box] [background:linear-gradient(var(--tc-bg-1),var(--tc-bg-1))_padding-box,linear-gradient(var(--angle),var(--tc-bg-1)_90%,var(--primary-color)_100%)_border-box] [animation:rotate_6s_linear_infinite]"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              Cómo trabajo
+              {t('workProcess.how.title')}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Un proceso estructurado que permite alinear expectativas, reducir riesgos
-              y avanzar con claridad desde el primer día.
+              {t('workProcess.how.description')}
             </p>
             <ul className="mt-2 space-y-1.5 text-sm text-gray-700 dark:text-gray-300 list-disc pl-5">
-              <li><span>Análisis</span></li>
-              <li><span>Diseño UX/UI</span></li>
-              <li><span>Diseño de la solución</span></li>
-              <li><span>Desarrollo</span></li>
-              <li><span>Testing y optimización</span></li>
-              <li><span>Despliegue</span></li>
+              <li><span>{t('workProcess.how.steps.analysis')}</span></li>
+              <li><span>{t('workProcess.how.steps.design')}</span></li>
+              <li><span>{t('workProcess.how.steps.solution')}</span></li>
+              <li><span>{t('workProcess.how.steps.development')}</span></li>
+              <li><span>{t('workProcess.how.steps.testing')}</span></li>
+              <li><span>{t('workProcess.how.steps.deployment')}</span></li>
             </ul>
           </div>
 
@@ -63,20 +63,18 @@ export default function WorkProcess() {
             className="border border-[rgba(189,189,189,0.22)] rounded-3xl p-6 flex flex-col gap-3 backdrop-blur-[10px] dark:[background:linear-gradient(var(--tc-bg-3),var(--tc-bg-3))_padding-box,linear-gradient(var(--angle),var(--tc-bg-3)_90%,var(--primary-color)_100%)_border-box] [background:linear-gradient(var(--tc-bg-1),var(--tc-bg-1))_padding-box,linear-gradient(var(--angle),var(--tc-bg-1)_90%,var(--primary-color)_100%)_border-box] [animation:rotate_6s_linear_infinite]"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              Servicios
+              {t('workProcess.services.title')}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Soluciones a medida para empresas y clientes freelance, adaptadas a sus
-              necesidades y objetivos.
+              {t('workProcess.services.description')}
             </p>
             <ul className="mt-2 space-y-1.5 text-sm text-gray-700 dark:text-gray-300 list-disc pl-5">
-              <li><span>Desarrollo web a medida</span> </li>
-              <li><span>Aplicaciones móviles</span></li>
-              <li><span>Plataformas administrativas</span></li>
-              {/* <li><span>Integración de pagos</span>  </li> */}
-              <li><span>Optimización, auditorías y SEO</span></li>
-              <li><span>Automatización de procesos</span></li>
-              <li><span>Desarrollo continuo y mantenimiento</span></li>
+              <li><span>{t('workProcess.services.items.web')}</span> </li>
+              <li><span>{t('workProcess.services.items.mobile')}</span></li>
+              <li><span>{t('workProcess.services.items.admin')}</span></li>
+              <li><span>{t('workProcess.services.items.optimization')}</span></li>
+              <li><span>{t('workProcess.services.items.automation')}</span></li>
+              <li><span>{t('workProcess.services.items.maintenance')}</span></li>
             </ul>
           </div>
 
@@ -86,18 +84,17 @@ export default function WorkProcess() {
             className="border border-[rgba(189,189,189,0.22)] rounded-3xl p-6 flex flex-col gap-3 backdrop-blur-[10px] dark:[background:linear-gradient(var(--tc-bg-3),var(--tc-bg-3))_padding-box,linear-gradient(var(--angle),var(--tc-bg-3)_90%,var(--primary-color)_100%)_border-box] [background:linear-gradient(var(--tc-bg-1),var(--tc-bg-1))_padding-box,linear-gradient(var(--angle),var(--tc-bg-1)_90%,var(--primary-color)_100%)_border-box] [animation:rotate_6s_linear_infinite]"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              Mi enfoque
+              {t('workProcess.approach.title')}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
-              Principios que guían cada proyecto para asegurar resultados consistentes,
-              escalables y sostenibles en el tiempo.
+              {t('workProcess.approach.description')}
             </p>
             <ul className="mt-2 space-y-1.5 text-sm text-gray-700 dark:text-gray-300 list-disc pl-5">
-              <li><span>Código limpio</span></li>
-              <li><span>Comunicación clara</span></li>
-              <li><span>Entregas puntuales</span></li>
-              <li><span>Documentación</span></li>
-              <li><span>Escalabilidad</span></li>
+              <li><span>{t('workProcess.approach.items.cleanCode')}</span></li>
+              <li><span>{t('workProcess.approach.items.communication')}</span></li>
+              <li><span>{t('workProcess.approach.items.delivery')}</span></li>
+              <li><span>{t('workProcess.approach.items.documentation')}</span></li>
+              <li><span>{t('workProcess.approach.items.scalability')}</span></li>
             </ul>
           </div>
         </div>

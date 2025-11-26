@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useProjectModal } from '../hooks/useProjectModal';
 import type { Project } from '../hooks/useProjectModal';
+import { getProjectText } from '../hooks/useProjectModal';
 import ProjectModal from '../components/layout/ProjectModal';
 import { useProjectsPageAnimation } from '../hooks/useProjectsPageAnimation';
 import Header from '../components/layout/Header';
@@ -9,10 +10,12 @@ import EmailModal from '../components/layout/EmailModal';
 import projectsData from '../data/projects.json';
 import { useApp } from '../contexts/AppContext';
 import { getImageUrl } from '../utils/imageLoader';
+import { useLanguage as useLanguageContext } from '../contexts/LanguageContext';
 
 export default function Proyectos() {
   const { isFirstLoad } = useApp();
-  const [selectedFilter, setSelectedFilter] = useState<string>('Todos');
+  const { t, language } = useLanguageContext();
+  const [selectedFilter, setSelectedFilter] = useState<string>(t('common.todos'));
   const {
     isOpen,
     selectedProject,
@@ -49,20 +52,21 @@ export default function Proyectos() {
   const categories = useMemo(() => {
     const uniqueCategories = new Set<string>();
     allProjects.forEach((project) => {
-      uniqueCategories.add(project.category);
+      const categoryText = getProjectText(project.category, language);
+      uniqueCategories.add(categoryText);
     });
-    return ['Todos', ...Array.from(uniqueCategories).sort()];
-  }, [allProjects]);
+    return [t('common.todos'), ...Array.from(uniqueCategories).sort()];
+  }, [allProjects, language, t]);
 
   // Filtrar proyectos según la categoría seleccionada
   const filteredProjects = useMemo(() => {
-    if (selectedFilter === 'Todos') {
+    if (selectedFilter === t('common.todos')) {
       return allProjects;
     }
     return allProjects.filter(
-      (project) => project.category === selectedFilter
+      (project) => getProjectText(project.category, language) === selectedFilter
     );
-  }, [allProjects, selectedFilter]);
+  }, [allProjects, selectedFilter, language, t]);
 
   const { titleRef, descriptionRef, projectsContainerRef } =
     useProjectsPageAnimation(filteredProjects.length);
@@ -83,17 +87,15 @@ export default function Proyectos() {
               className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white"
             >
               <span className="relative inline-block after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r after:from-[#ff9800] after:to-[#ff9800] after:w-full after:mt-2 mr-3">
-                Todos los
+                {t('projects.page.title')}
               </span>
-              <span className="text-[#ff9800]">proyectos</span>
+              <span className="text-[#ff9800]">{t('projects.page.titleHighlight')}</span>
             </h1>
             <p
               ref={descriptionRef}
               className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
             >
-              Una colección completa de proyectos que demuestran mi experiencia
-              en desarrollo web, aplicaciones móviles y soluciones digitales
-              innovadoras.
+              {t('projects.page.description')}
             </p>
           </div>
 
@@ -117,10 +119,10 @@ export default function Proyectos() {
           {/* Projects Count */}
           <div className="mb-8 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Mostrando <span className="font-semibold text-[#ff9800]">{filteredProjects.length}</span>{' '}
-              {filteredProjects.length === 1 ? 'proyecto' : 'proyectos'}
-              {selectedFilter !== 'Todos' && (
-                <span> en {selectedFilter}</span>
+              {t('projects.page.showing')} <span className="font-semibold text-[#ff9800]">{filteredProjects.length}</span>{' '}
+              {filteredProjects.length === 1 ? t('projects.page.project') : t('projects.page.projects')}
+              {selectedFilter !== t('common.todos') && (
+                <span> {t('projects.page.in')} {selectedFilter}</span>
               )}
             </p>
           </div>
@@ -141,7 +143,7 @@ export default function Proyectos() {
                 <div className="relative h-48 bg-gray-200 dark:bg-gray-800 overflow-hidden">
                   <img
                     src={getImageUrl(project.previewImage)}
-                    alt={project.title}
+                    alt={getProjectText(project.title, language)}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -159,7 +161,7 @@ export default function Proyectos() {
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-[#ff9800] text-white text-xs font-semibold rounded-full uppercase tracking-wide">
-                      {project.category}
+                      {getProjectText(project.category, language)}
                     </span>
                   </div>
                 </div>
@@ -167,10 +169,10 @@ export default function Proyectos() {
                 {/* Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white line-clamp-2">
-                    {project.title}
+                    {getProjectText(project.title, language)}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-                    {project.shortDescription}
+                    {getProjectText(project.shortDescription, language)}
                   </p>
 
                   {/* Technologies */}
@@ -215,7 +217,7 @@ export default function Proyectos() {
 
                   {/* View Button */}
                   <button className="mt-4 w-full py-2 px-4 bg-[#ff9800] hover:bg-[#e68900] text-white font-semibold rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-                    <span>Ver proyecto</span>
+                    <span>{t('common.verProyecto')}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -238,13 +240,13 @@ export default function Proyectos() {
           ) : (
             <div className="text-center py-20">
               <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                No se encontraron proyectos en esta categoría
+                {t('projects.page.noResults')}
               </p>
               <button
-                onClick={() => setSelectedFilter('Todos')}
+                onClick={() => setSelectedFilter(t('common.todos'))}
                 className="px-6 py-3 bg-[#ff9800] hover:bg-[#e68900] text-white font-semibold rounded-lg transition-colors duration-200"
               >
-                Ver todos los proyectos
+                {t('projects.page.viewAll')}
               </button>
             </div>
           )}

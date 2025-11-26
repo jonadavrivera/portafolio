@@ -1,12 +1,15 @@
 import { useProjectsAnimation } from '../../hooks/useProjectsAnimation';
 import { useProjectModal } from '../../hooks/useProjectModal';
 import type { Project } from '../../hooks/useProjectModal';
+import { getProjectText } from '../../hooks/useProjectModal';
 import ProjectModal from '../layout/ProjectModal';
 import projectsData from '../../data/projects.json';
 import { getImageUrl } from '../../utils/imageLoader';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 export default function ProjectsSection() {
   const { proyectosSectionRef } = useProjectsAnimation();
+  const { t, language } = useLanguageContext();
   const {
     isOpen,
     selectedProject,
@@ -33,28 +36,28 @@ export default function ProjectsSection() {
       <article key={project.id} className={cardClass}>
                 <header className="flex-shrink-0">
                   <p className="text-[10px] tracking-[0.35em] uppercase text-white/70 mb-3">
-            {project.category}
+            {getProjectText(project.category, language)}
                   </p>
                   <div className="w-full h-40 bg-white/10 rounded-xl overflow-hidden mb-4 border border-white/20">
                     <img
               src={getImageUrl(project.previewImage)}
-              alt={project.title}
+              alt={getProjectText(project.title, language)}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.parentElement!.innerHTML =
-                  '<div class="w-full h-full flex items-center justify-center text-white/50 text-xs">Sin imagen</div>';
+                  `<div class="w-full h-full flex items-center justify-center text-white/50 text-xs">${language === 'es' ? 'Sin imagen' : 'No image'}</div>`;
                       }}
                     />
                   </div>
                   <h3 className="text-xl md:text-2xl leading-tight font-semibold mb-3">
-            {project.title}
+            {getProjectText(project.title, language)}
                   </h3>
                 </header>
 
                 <div className="flex-1 flex flex-col justify-between">
                   <p className="text-[11px] leading-relaxed text-white/90 mb-4">
-            {project.shortDescription}
+            {getProjectText(project.shortDescription, language)}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -73,7 +76,7 @@ export default function ProjectsSection() {
               onClick={(e) => handleProjectClick(e, project)}
                       className="px-4 py-2 rounded-lg border border-white/50 flex items-center gap-2 text-[11px] font-medium hover:bg-white/20 transition-colors group"
                     >
-                      <span>Ver proyecto</span>
+                      <span>{t('common.verProyecto')}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -115,9 +118,9 @@ export default function ProjectsSection() {
               aria-label="Proyectos destacados"
             >
               <span className="relative inline-block after:content-[''] after:block after:h-[3px] after:bg-gradient-to-r after:from-[#ff9800] after:to-[#ff9800] after:w-full after:mt-2 mr-3">
-                Proyectos
+                {t('projects.section.title')}
                     </span>
-              <span className="text-[#ff9800]">destacados</span>
+              <span className="text-[#ff9800]">{t('projects.section.titleHighlight')}</span>
             </h2>
                   </div>
 
@@ -133,14 +136,13 @@ export default function ProjectsSection() {
                 >
                   <div className="text-center max-w-2xl">
                     <p className="text-xs tracking-[0.3em] uppercase mb-4 text-gray-700 dark:text-white">
-                        Diseño + Código + Impacto
+                        {t('projects.section.tagline')}
                     </p>
                     <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-gray-700 dark:text-white">
-                      Descubre mi trabajo
+                      {t('projects.section.discoverTitle')}
                     </h2>
                     <p className="text-sm md:text-base text-gray-700 dark:text-white">
-                      Una selección de proyectos que representan mi pasión por el
-                      desarrollo y la creación de experiencias únicas.
+                      {t('projects.section.description')}
                     </p>
                   </div>
                 </div>
@@ -155,21 +157,20 @@ export default function ProjectsSection() {
               >
                 <div className="text-center max-w-2xl">
                     <p className="text-xs tracking-[0.3em] uppercase mb-4 text-gray-700 dark:text-white">
-                    Gracias por explorar
+                    {t('projects.section.outro.tagline')}
                   </p>
                     <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-gray-700 dark:text-white">
-                    ¿Trabajamos juntos?
+                    {t('projects.section.outro.title')}
                   </h2>
                     <p className="text-sm md:text-base text-gray-700 dark:text-white">
-                    Si te gustó lo que viste, estaré encantado de conversar
-                    sobre cómo podemos crear algo increíble juntos.
+                    {t('projects.section.outro.description')}
                   </p>
 
                   <a
                     href="/proyectos"
                     className="inline-flex items-center gap-3 bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 mt-4"
                   >
-                    Ver todos los proyectos
+                    {t('projects.section.outro.button')}
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       →
                     </span>

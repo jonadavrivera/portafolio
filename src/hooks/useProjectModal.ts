@@ -2,23 +2,33 @@ import { useState } from 'react';
 
 export interface ProjectImage {
   url: string;
-  title?: string;
-  description?: string;
+  title?: string | { es: string; en: string };
+  description?: string | { es: string; en: string };
 }
 
 export interface Project {
   id: string;
-  title: string;
-  category: string;
+  title: string | { es: string; en: string };
+  category: string | { es: string; en: string };
   previewImage: string;
-  shortDescription: string;
+  shortDescription: string | { es: string; en: string };
   technologies: string[];
-  fullDescription: string;
+  fullDescription: string | { es: string; en: string };
   startDate: string;
   endDate: string;
   images: ProjectImage[];
-  header?: string;
-  optionalDescription?: string;
+  header?: string | { es: string; en: string };
+  optionalDescription?: string | { es: string; en: string };
+}
+
+// Helper function to get text based on language
+export function getProjectText(
+  text: string | { es: string; en: string } | undefined,
+  language: 'es' | 'en'
+): string {
+  if (!text) return '';
+  if (typeof text === 'string') return text;
+  return text[language] || text.es || '';
 }
 
 export function useProjectModal() {

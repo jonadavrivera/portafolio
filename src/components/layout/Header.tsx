@@ -5,6 +5,7 @@ import { useHeaderShrink } from '../../hooks/useHeaderShrink';
 import { useMobileMenu } from '../../hooks/useMobileMenu';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../hooks/useLanguage';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 import { scrollToSection } from '../../hooks/useSmoothScroll';
 import MobileMenu from './MobileMenu';
 import logoLight from '../../assets/images/logobn.svg';
@@ -28,6 +29,7 @@ export default function Header({ loaderComplete }: HeaderProps) {
   const { menuButtonRef, menuRef } = useMobileMenu();
   const { toggleTheme } = useTheme();
   const { toggleLang, lang } = useLanguage();
+  const { t } = useLanguageContext();
 
   // Exponer expandHeader para que HeroSection lo pueda usar
   React.useEffect(() => {
@@ -98,28 +100,28 @@ export default function Header({ loaderComplete }: HeaderProps) {
             onClick={(e) => handleNavClick(e, '/')}
             className="hover:text-[#ff9800] transition-colors"
           >
-            Inicio
+            {t('header.nav.inicio')}
           </a>
           <a
             href="/#experiencia"
             onClick={(e) => handleNavClick(e, '/#experiencia')}
             className="hover:text-[#ff9800] transition-colors"
           >
-            Experiencia
+            {t('header.nav.experiencia')}
           </a>
           <a
             href="/proyectos"
             onClick={(e) => handleNavClick(e, '/proyectos')}
             className="hover:text-[#ff9800] transition-colors"
           >
-            Proyectos
+            {t('header.nav.proyectos')}
           </a>
           <a
             href="#"
             id="contacto-nav"
             className="hover:text-[#ff9800] transition-colors cursor-pointer"
           >
-            Contacto
+            {t('header.nav.contacto')}
           </a>
         </nav>
 

@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import type { Project } from '../../hooks/useProjectModal';
+import { getProjectText } from '../../hooks/useProjectModal';
 import { getImageUrl } from '../../utils/imageLoader';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -30,6 +32,7 @@ export default function ProjectModal({
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const prevProjectRef = useRef<Project | null>(null);
   const isInitialMount = useRef(true);
+  const { t, language } = useLanguageContext();
 
   // Función para hacer scroll al top del modal
   const scrollToTop = () => {
@@ -405,7 +408,7 @@ export default function ProjectModal({
           ref={closeButtonRef}
           onClick={handleClose}
           className="absolute top-4 right-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
-          aria-label="Cerrar modal"
+          aria-label={t('projects.modal.close')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -436,42 +439,42 @@ export default function ProjectModal({
             {project.header && (
               <div className="mb-6">
                 <h3 className="text-xs tracking-[0.3em] uppercase text-[#ff9800] mb-2">
-                  {project.header}
+                  {getProjectText(project.header, language)}
                 </h3>
               </div>
             )}
 
             {/* Title */}
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              {project.title}
+              {getProjectText(project.title, language)}
             </h2>
 
             {/* Category */}
             <p className="text-sm tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-6">
-              {project.category}
+              {getProjectText(project.category, language)}
             </p>
 
             {/* Optional Description */}
             {project.optionalDescription && (
               <p className="text-base text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                {project.optionalDescription}
+                {getProjectText(project.optionalDescription, language)}
               </p>
             )}
 
             {/* Full Description */}
             <div className="mb-6">
               <h3 className="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-3">
-                Descripción
+                {t('projects.modal.description')}
               </h3>
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                {project.fullDescription}
+                {getProjectText(project.fullDescription, language)}
               </p>
             </div>
 
             {/* Dates */}
             <div className="mb-6">
               <h3 className="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-3">
-                Período
+                {t('projects.modal.period')}
               </h3>
               <div className="flex items-center gap-2">
                 <svg
@@ -500,7 +503,7 @@ export default function ProjectModal({
             {/* Technologies */}
             <div className="mb-6">
               <h3 className="text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-3">
-                Tecnologías
+                {t('projects.modal.technologies')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
@@ -523,7 +526,7 @@ export default function ProjectModal({
                     onPrevious();
                   }}
                   className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
-                  aria-label="Proyecto anterior"
+                  aria-label={t('projects.modal.previousProject')}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -540,7 +543,7 @@ export default function ProjectModal({
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#ff9800] transition-colors">
-                    Anterior
+                    {t('projects.modal.previous')}
                   </span>
                 </button>
               )}
@@ -552,10 +555,10 @@ export default function ProjectModal({
                     onNext();
                   }}
                   className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 group"
-                  aria-label="Siguiente proyecto"
+                  aria-label={t('projects.modal.nextProject')}
                 >
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#ff9800] transition-colors">
-                    Siguiente
+                    {t('projects.modal.next')}
                   </span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -588,13 +591,13 @@ export default function ProjectModal({
                   <div key={index} className="space-y-3 image-container">
                     {image.title && (
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        {image.title}
+                        {getProjectText(image.title, language)}
                       </h4>
                     )}
                     <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 min-h-[200px] flex items-center justify-center">
                       <img
                         src={getImageUrl(image.url)}
-                        alt={image.title || `Imagen ${index + 1} del proyecto ${project.title}`}
+                        alt={getProjectText(image.title, language) || `${language === 'es' ? 'Imagen' : 'Image'} ${index + 1} ${language === 'es' ? 'del proyecto' : 'of project'} ${getProjectText(project.title, language)}`}
                         className="w-full h-auto object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
@@ -604,7 +607,7 @@ export default function ProjectModal({
                             const errorDiv = document.createElement('div');
                             errorDiv.className =
                               'error-message w-full h-64 flex items-center justify-center text-gray-400 dark:text-gray-600';
-                            errorDiv.textContent = 'Sin imagen';
+                            errorDiv.textContent = language === 'es' ? 'Sin imagen' : 'No image';
                             parent.appendChild(errorDiv);
                           }
                         }}
@@ -612,7 +615,7 @@ export default function ProjectModal({
                     </div>
                     {image.description && (
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {image.description}
+                        {getProjectText(image.description, language)}
                       </p>
                     )}
                   </div>
@@ -621,7 +624,7 @@ export default function ProjectModal({
             ) : (
               <div className="w-full h-full flex items-center justify-center">
                 <p className="text-gray-400 dark:text-gray-600 text-lg">
-                  Sin imagen
+                  {language === 'es' ? 'Sin imagen' : 'No image'}
                 </p>
               </div>
             )}

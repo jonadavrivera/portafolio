@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEmailModal } from '../../hooks/useEmailModal';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 import { scrollToSection } from '../../hooks/useSmoothScroll';
 
 interface MobileMenuProps {
@@ -11,6 +12,7 @@ export default function MobileMenu({ menuRef }: MobileMenuProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { openModal } = useEmailModal();
+  const { t } = useLanguageContext();
 
   React.useEffect(() => {
     const contactoLink = document.getElementById('contacto-mobile-nav');
@@ -57,28 +59,28 @@ export default function MobileMenu({ menuRef }: MobileMenuProps) {
         onClick={(e) => handleNavClick(e, '/')}
         className="block text-white py-4 px-2 w-full text-center hover:bg-[rgba(255,255,255,0.04)]"
       >
-        Inicio
+        {t('header.nav.inicio')}
       </a>
       <a
         href="/#experiencia"
         onClick={(e) => handleNavClick(e, '/#experiencia')}
         className="block text-white py-4 px-2 w-full text-center hover:bg-[rgba(255,255,255,0.04)]"
       >
-        Experiencia
+        {t('header.nav.experiencia')}
       </a>
       <a
         href="/proyectos"
         onClick={(e) => handleNavClick(e, '/proyectos')}
         className="block text-white py-4 px-2 w-full text-center hover:bg-[rgba(255,255,255,0.04)]"
       >
-        Proyectos
+        {t('header.nav.proyectos')}
       </a>
       <a
         href="#"
         id="contacto-mobile-nav"
         className="block text-white py-4 px-2 w-full text-center hover:bg-[rgba(255,255,255,0.04)] cursor-pointer"
       >
-        Contacto
+        {t('header.nav.contacto')}
       </a>
     </nav>
   );

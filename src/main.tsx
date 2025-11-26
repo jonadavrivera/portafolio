@@ -5,11 +5,14 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import './styles/fonts.css'
 import { AppProvider } from './contexts/AppContext'
+import { LanguageProvider } from './contexts/LanguageContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppProvider>
-      <RouterProvider router={router} />
-    </AppProvider>
+    <LanguageProvider>
+      <AppProvider>
+        <RouterProvider router={router} />
+      </AppProvider>
+    </LanguageProvider>
   </StrictMode>,
 )

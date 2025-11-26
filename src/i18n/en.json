@@ -1,0 +1,199 @@
+{
+  "common": {
+    "inicio": "Home",
+    "experiencia": "Experience",
+    "proyectos": "Projects",
+    "contacto": "Contact",
+    "anterior": "Previous",
+    "siguiente": "Next",
+    "cerrar": "Close",
+    "copiado": "✓ Copied to clipboard",
+    "verProyecto": "View project",
+    "verTodos": "View all projects",
+    "todos": "All"
+  },
+  "header": {
+    "nav": {
+      "inicio": "Home",
+      "experiencia": "Experience",
+      "proyectos": "Projects",
+      "contacto": "Contact"
+    }
+  },
+  "hero": {
+    "greeting": "👋 Hello",
+    "name": "I'm",
+    "nameHighlight": "Jonathan Rivera",
+    "title": "Developer",
+    "typing": {
+      "sitiosWeb": "Web Sites",
+      "aplicacionesMoviles": "Mobile Apps",
+      "plataformas": "Platforms",
+      "herramientas": "Tools"
+    },
+    "availability": "Available for new projects",
+    "description": "Computer Systems Engineer with a Master's in Web Site Direction and Engineering with over 8 years creating efficient digital experiences.",
+    "buttonProjects": "View projects",
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    },
+    "about": {
+      "title": "About",
+      "titleHighlight": "me",
+      "subtitle": "Beyond code and technologies",
+      "paragraph1": "I focus on understanding the business context and transforming those needs into clear, modern, and easy-to-use products. I've collaborated with both companies and freelance clients, always seeking to balance functionality, design, and maintainability.",
+      "paragraph2": "I enjoy working on internal tools and administrative panels that facilitate team work. I'm motivated to create experiences where visual clarity and efficiency become part of everyday life."
+    }
+  },
+  "experience": {
+    "title": "Work",
+    "titleHighlight": "Experience",
+    "position": "Position",
+    "company": "Company",
+    "period": "Period",
+    "description": "Description",
+    "fullStack": "Full Stack Developer",
+    "contactoMedios": "Contacto en Medios",
+    "description1": "I led the development of digital platforms and internal tools, coordinating teams and applying best practices with <tech>Laravel 12</tech>, <tech>Livewire 3</tech> and <tech>React</tech>.",
+    "description2": "I participated in requirements definition and project planning, driving clearer and more efficient processes.",
+    "description3": "I also developed mobile applications with <tech>Flutter</tech>, integrating administrative functions and notifications.",
+    "freelance": {
+      "title": "Freelance Web & Mobile Developer",
+      "description": "Independent experience collaborating with companies and clients in the development of platforms, administrative panels, and internal tools. Working on analysis, architecture, construction, and continuous improvements, delivering clear, scalable, and business-oriented solutions."
+    }
+  },
+  "career": {
+    "title": "Academic",
+    "titleHighlight": "Background",
+    "description": "My academic journey reflects my commitment to excellence and technological innovation",
+    "period": "Period",
+    "university": "University",
+    "degree": "Degree",
+    "maestria": {
+      "title": "Master's in Web Site Direction and Engineering",
+      "university": "UNIR México",
+      "description": "Development of competencies in technical leadership, digital architecture, team management, and high-impact web project direction."
+    },
+    "certificado": {
+      "title": "Certificate in Digital Project Management",
+      "university": "MIU City University Miami",
+      "description": "Specialized training in digital project management, agile methodologies, scope definition, and strategic prioritization."
+    },
+    "ingenieria": {
+      "title": "Computer Systems Engineering",
+      "university": "Universidad Tres Culturas",
+      "description": "Foundation training in software development, databases, systems analysis, and architecture.",
+      "recognition": "Recognition for updating the institutional website."
+    }
+  },
+  "projects": {
+    "section": {
+      "tagline": "Design + Code + Impact",
+      "title": "Featured",
+      "titleHighlight": "Projects",
+      "discoverTitle": "Discover my work",
+      "description": "A selection of projects that represent my passion for development and creating unique experiences.",
+      "outro": {
+        "tagline": "Thanks for exploring",
+        "title": "Let's work together?",
+        "description": "If you liked what you saw, I'd be delighted to talk about how we can create something amazing together.",
+        "button": "View all projects"
+      }
+    },
+    "page": {
+      "title": "All",
+      "titleHighlight": "projects",
+      "description": "A complete collection of projects demonstrating my experience in web development, mobile applications, and innovative digital solutions.",
+      "showing": "Showing",
+      "project": "project",
+      "projects": "projects",
+      "in": "in",
+      "noResults": "No projects found in this category",
+      "viewAll": "View all projects"
+    },
+    "modal": {
+      "description": "Description",
+      "period": "Period",
+      "technologies": "Technologies",
+      "previous": "Previous",
+      "next": "Next",
+      "close": "Close modal",
+      "previousProject": "Previous project",
+      "nextProject": "Next project"
+    }
+  },
+  "technologies": {
+    "title": "Technologies",
+    "titleHighlight": "used",
+    "frontend": "Front-End",
+    "backend": "Back-End",
+    "databases": "Databases",
+    "testing": "Testing",
+    "tools": "Tools & Platforms",
+    "others": "Others"
+  },
+  "workProcess": {
+    "title": "Work",
+    "titleHighlight": "Process",
+    "description": "This is how I structure each project: clarity in the process, defined services, and an approach that ensures real results.",
+    "how": {
+      "title": "How I work",
+      "description": "A structured process that allows aligning expectations, reducing risks, and moving forward with clarity from day one.",
+      "steps": {
+        "analysis": "Analysis",
+        "design": "UX/UI Design",
+        "solution": "Solution Design",
+        "development": "Development",
+        "testing": "Testing and optimization",
+        "deployment": "Deployment"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "description": "Custom solutions for companies and freelance clients, tailored to their needs and objectives.",
+      "items": {
+        "web": "Custom web development",
+        "mobile": "Mobile applications",
+        "admin": "Administrative platforms",
+        "optimization": "Optimization, audits, and SEO",
+        "automation": "Process automation",
+        "maintenance": "Continuous development and maintenance"
+      }
+    },
+    "approach": {
+      "title": "My approach",
+      "description": "Principles that guide each project to ensure consistent, scalable, and sustainable results over time.",
+      "items": {
+        "cleanCode": "Clean code",
+        "communication": "Clear communication",
+        "delivery": "On-time delivery",
+        "documentation": "Documentation",
+        "scalability": "Scalability"
+      }
+    }
+  },
+  "conclusion": {
+    "title": "Building the next chapter",
+    "text": "Every project is an opportunity to learn, innovate, and transform ideas into memorable digital experiences.",
+    "text2": "I'm ready to keep building and growing as a developer.",
+    "button": "Contact"
+  },
+  "emailModal": {
+    "title": "Contact",
+    "subtitle": "Select an option to contact me",
+    "emailLabel": "Email:",
+    "copy": "Copy email",
+    "copied": "✓ Copied to clipboard",
+    "send": "Send email",
+    "close": "Close modal"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Page not found",
+    "description": "The page you're looking for doesn't exist.",
+    "back": "Back to home"
+  }
+}
+

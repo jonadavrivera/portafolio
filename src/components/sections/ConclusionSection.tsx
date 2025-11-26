@@ -1,11 +1,13 @@
 import React from 'react';
 import { useConclusionAnimation } from '../../hooks/useConclusionAnimation';
 import { useEmailModal } from '../../hooks/useEmailModal';
+import { useLanguage as useLanguageContext } from '../../contexts/LanguageContext';
 
 export default function ConclusionSection() {
   const { conclusionTitleRef, conclusionTextRef, contactButtonRef } =
     useConclusionAnimation();
   const { openModal } = useEmailModal();
+  const { t } = useLanguageContext();
 
   React.useEffect(() => {
     const contactButton = contactButtonRef.current;
@@ -33,17 +35,16 @@ export default function ConclusionSection() {
         ref={conclusionTitleRef}
         className="text-4xl font-bold text-[#ff9800] mb-6"
       >
-        Construyendo el siguiente capítulo
+        {t('conclusion.title')}
       </h2>
       <p
         id="conclusion-text"
         ref={conclusionTextRef}
         className="text-gray-400 max-w-3xl leading-relaxed"
       >
-        Cada proyecto es una oportunidad para aprender, innovar y transformar
-        ideas en experiencias digitales memorables.
+        {t('conclusion.text')}
         <br />
-        Estoy listo para seguir construyendo y creciendo como desarrollador.
+        {t('conclusion.text2')}
       </p>
       <button
         id="contact-me-button"
@@ -64,7 +65,7 @@ export default function ConclusionSection() {
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
           <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        Contactar
+        {t('conclusion.button')}
       </button>
     </section>
   );

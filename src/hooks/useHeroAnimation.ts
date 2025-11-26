@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useLanguage as useLanguageContext } from '../contexts/LanguageContext';
 
 interface UseHeroAnimationProps {
   onHeaderExpand: () => void;
@@ -7,6 +8,7 @@ interface UseHeroAnimationProps {
 }
 
 export function useHeroAnimation({ onHeaderExpand, loaderComplete }: UseHeroAnimationProps) {
+  const { t, language } = useLanguageContext();
   const introGreetingRef = useRef<HTMLParagraphElement>(null);
   const introNameRef = useRef<HTMLHeadingElement>(null);
   const titleDesarrolladorRef = useRef<HTMLHeadingElement>(null);
@@ -183,7 +185,8 @@ export function useHeroAnimation({ onHeaderExpand, loaderComplete }: UseHeroAnim
         if (titleDesarrollador) {
           // Asegurar que el elemento esté completamente limpio
           titleDesarrollador.textContent = '';
-          typewriterEffect(titleDesarrollador, 'Desarrollador', 80).then(() => {
+          const titleText = t('hero.title');
+          typewriterEffect(titleDesarrollador, titleText, 80).then(() => {
             mainTL.resume();
           });
         }
@@ -192,15 +195,17 @@ export function useHeroAnimation({ onHeaderExpand, loaderComplete }: UseHeroAnim
       .addPause()
       .call(() => {
         if (textoSitiosWeb) {
-          const sitiosWebText = 'de sitios web';
-          const webStartTime = ((sitiosWebText.length - 3) * 80) / 1000;
+          const typingText = language === 'es' 
+            ? `de ${t('hero.typing.sitiosWeb').toLowerCase()}`
+            : `of ${t('hero.typing.sitiosWeb')}`;
+          const webStartTime = ((typingText.length - 3) * 80) / 1000;
 
           // Asegurar que el elemento esté completamente limpio
           textoSitiosWeb.textContent = '';
           
           const typingPromise = typewriterEffect(
             textoSitiosWeb,
-            sitiosWebText,
+            typingText,
             80
           );
 
@@ -295,7 +300,7 @@ export function useHeroAnimation({ onHeaderExpand, loaderComplete }: UseHeroAnim
         duration: 0.3,
         ease: 'power1.inOut',
       });
-  }, [onHeaderExpand, loaderComplete]);
+  }, [onHeaderExpand, loaderComplete, language, t]);
 
   return {
     introGreetingRef,
