@@ -1,70 +1,255 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --primary-color: #ff9800;
+  --tc-bg-3: #212529; /* fondo oscuro para que se note el borde */
+  --tc-bg-1: #fff;
 }
 
 body {
-  margin: 0;
+  @apply bg-white dark:bg-[#212529] text-[#0f0f0f] dark:text-white transition-colors duration-300;
+
+}
+
+p,span,h1,h2,h3,h4,h5,h6,a, button li{
+  font-family: "Fira";
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.contenido {
+  height: 2000px;
+  width: 100%;
+  background: linear-gradient(to bottom, #6d6dff, #b3b3ff);
+}
+
+.header {
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 30px 120px;
+  justify-content: space-between;
+
+  /* glass */
+  background: rgba(189, 189, 189, 0.14);
+  border-radius: 150px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(189, 189, 189, 0.22);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* .clogo {
+height: 24px;
+width: 100px;
+overflow: hidden;
+display: flex;
+align-items: center; 
+justify-content: center; 
+text-align: center;
 }
+.logo {
+  color: white;
+  font-size: 2em;
+  font-weight: 600;
+  cursor: default;
+  text-decoration: none;
+  font-family: "Fira";
+  letter-spacing: -5px;
+  width: 1;
+  
+}
+.slogo {
+  color: #ff9800;
+  font-weight: 600;
+  letter-spacing: -6px;
+} */
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.navbar a {
+  color: white;
+  font-size: 1.1em;
+  margin-left: 40px;
+  text-decoration: none;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: 0.3s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.navbar a:hover {
+  color: #ff9800;
+  border-bottom: 2px solid #ff9800;
+}
+
+/* Liquid Glass Effect - Estilo Apple, sin sombras, fondo visible */
+.liquid-glass {
+  /* Blur moderado para ver mejor el fondo */
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  -moz-backdrop-filter: blur(12px) saturate(150%);
+  
+  /* Fondo casi transparente para ver mejor el fondo detrás */
+  background: rgba(255, 255, 255, 0.02);
+  
+  /* Borde muy sutil estilo Apple */
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  
+  /* Sin sombras - estilo Apple limpio */
+  box-shadow: none;
+  
+  /* Mejora de rendimiento */
+  will-change: transform, backdrop-filter;
+}
+
+/* Fallback para navegadores que no soportan backdrop-filter */
+@supports not (backdrop-filter: blur(12px)) {
+  .liquid-glass {
+      background: rgba(255, 255, 255, 0.1);
+      border: 0.5px solid rgba(255, 255, 255, 0.2);
   }
-  a:hover {
-    color: #747bff;
+}
+
+/* Performance-optimized header animations */
+#header {
+  /* prefer animating transform and filter (GPU) where possible; include top/max-width for small smooth layout tweaks */
+  transition: transform 280ms cubic-bezier(.2,.9,.2,1),
+              top 280ms cubic-bezier(.2,.9,.2,1),
+              max-width 280ms cubic-bezier(.2,.9,.2,1),
+              border-radius 280ms cubic-bezier(.2,.9,.2,1),
+              backdrop-filter 280ms cubic-bezier(.2,.9,.2,1),
+              background 280ms cubic-bezier(.2,.9,.2,1),
+              opacity 220ms ease;
+  will-change: transform, backdrop-filter, top, max-width;
+  transform-origin: center top;
+}
+
+#header.shrunk {
+  /* move down slightly (increase top separation) and scale down to look smaller */
+  transform: translateY(8px) scale(0.98) scaleX(0.92);
+  /* keep original border-radius (do not change) to preserve visual consistency */
+  /* Efecto glass más intenso cuando está shrunk - estilo Apple */
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  -moz-backdrop-filter: blur(16px) saturate(160%);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+/* Entry animation: start slightly smaller and fade into normal size for a smooth load */
+#header.initial-small {
+  transform: translateY(-6px) scale(0.96) scaleX(0.98);
+  opacity: 0.96;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #header, #header.shrunk {
+      transition: none !important;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Hamburger button animation */
+.hamburger {
+  width: 22px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.hamburger span {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 220ms ease, opacity 180ms ease, top 220ms ease;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 7px; }
+.hamburger span:nth-child(3) { top: 14px; }
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu visibility toggles (we use tailwind utilities but provide a fallback) */
+.mobile-menu.show {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =======================================================================
+ ANIMATED BORDER CARD - Borde animado con gradiente rotatorio
+ ======================================================================= */
+:root {
+  --animated-border-primary: #ff9800; /* Color naranja principal */
+  --animated-border-bg: #212529; /* Color de fondo para el borde */
+}
+
+/* Propiedad CSS personalizada para el ángulo animado */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Animación de rotación del ángulo */
+@keyframes rotate-border {
+  to {
+      --angle: 360deg;
+  }
+}
+
+/* Clase reutilizable para cards con borde animado */
+.animated-border-card {
+  position: relative;
+  overflow: visible;
+  border: 2px solid transparent;
+  background: 
+      linear-gradient(var(--animated-border-bg), var(--animated-border-bg)) padding-box,
+      linear-gradient(var(--angle), var(--animated-border-bg) 85%, var(--animated-border-primary) 100%) border-box;
+  animation: rotate-border 6s linear infinite;
+  border-radius: 1.5rem; /* rounded-3xl */
+  /* Asegurar que el contenido interno se vea correctamente */
+  isolation: isolate;
+}
+
+/* Ajustar el contenido interno para que respete el borde */
+.animated-border-card > div {
+  border-radius: calc(1.5rem - 2px); /* Ajustar para que el borde se vea */
+  overflow: hidden;
+}
+
+/* Fallback para navegadores que no soportan @property */
+@supports not (background: linear-gradient(var(--angle), red, blue)) {
+  .animated-border-card {
+      border: 2px solid var(--animated-border-primary);
+      animation: none;
+  }
+}
+
+/* Desactivar animación si el usuario prefiere movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .animated-border-card {
+      animation: none;
+      border: 2px solid var(--animated-border-primary);
   }
 }
